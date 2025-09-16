@@ -1,10 +1,11 @@
 #include "block.hpp"
 
-Block::Block(sf::Vector2f size, sf::Vector2f position, sf::Vector2f init_velocity, sf::Color fill_colour) {
+Block::Block(sf::Vector2f size, sf::Vector2f position, sf::Vector2f init_velocity, float mass, sf::Color fill_colour) {
     shape.setSize(size);
     shape.setPosition(position);
     shape.setFillColor(fill_colour);
     velocity = init_velocity;
+    mass = mass;
 }
 
 

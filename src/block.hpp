@@ -3,7 +3,7 @@
 
 class Block {
     public:
-        Block(sf::Vector2f size, sf::Vector2f position, sf::Vector2f init_velocity, sf::Color fill_colour);
+        Block(sf::Vector2f size, sf::Vector2f position, sf::Vector2f init_velocity, float mass, sf::Color fill_colour);
 
         void update(float dt);
 
@@ -30,5 +30,6 @@ class Block {
     private:
         sf::RectangleShape shape;
         sf::Vector2f velocity;
+        float mass;
 
 };

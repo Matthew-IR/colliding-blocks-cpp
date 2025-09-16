@@ -12,12 +12,14 @@ int main() {
         sf::Vector2f block1_size = {10.0f, 10.0f};
         sf::Vector2f block1_position = {300.0f, 0.0f};
         sf::Vector2f block1_init_velocity = {100.0f, 0.0f};
+        float block1_mass = 100.0f;
         sf::Vector2f block2_size = {10.0f, 10.0f};
         sf::Vector2f block2_position = {600.0f, 0.0f};
         sf::Vector2f block2_init_velocity = {-100.0f, 0.0f};
+        float block2_mass = 100.0f;
 
-        Block block1(block1_size, block1_position, block1_init_velocity, sf::Color::Red);
-        Block block2(block2_size, block2_position, block2_init_velocity, sf::Color::Green);
+        Block block1(block1_size, block1_position, block1_init_velocity, block1_mass, sf::Color::Red);
+        Block block2(block2_size, block2_position, block2_init_velocity, block2_mass, sf::Color::Green);
 
         // Walls
         sf::Vector2f wall_size = {2.0f, 1000.0f};
@@ -25,8 +27,8 @@ int main() {
         sf::Vector2f rightwall_position = {WINDOW_WIDTH - 20.0f, 0.0f};
         sf::Vector2f wall_velocity = {0.0f, 0.0f};
 
-        Block leftwall(wall_size, leftwall_position, wall_velocity, sf::Color::White);
-        Block rightwall(wall_size, rightwall_position, wall_velocity, sf::Color::White);
+        Block leftwall(wall_size, leftwall_position, wall_velocity, 0.0f, sf::Color::White);
+        Block rightwall(wall_size, rightwall_position, wall_velocity, 0.0f, sf::Color::White);
 
         sf::Clock clock;
 
