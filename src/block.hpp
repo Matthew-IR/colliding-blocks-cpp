@@ -21,6 +21,10 @@ class Block {
             return velocity;
         }
 
+        float const getMass() {
+            return mass;
+        }
+
         void setVelocity(sf::Vector2f new_velocity);
 
         sf::FloatRect getGlobalBounds() {
