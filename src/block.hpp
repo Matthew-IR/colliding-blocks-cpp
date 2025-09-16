@@ -3,9 +3,9 @@
 
 class Block {
     public:
-        Block(sf::Vector2f size, sf::Vector2f position, sf::Color fill_colour);
+        Block(sf::Vector2f size, sf::Vector2f position, sf::Vector2f init_velocity, sf::Color fill_colour);
 
-        void update();
+        void update(float dt);
 
         void draw(sf::RenderWindow& window);
 
@@ -17,7 +17,10 @@ class Block {
             return shape.getSize();
         }
 
+        void setVelocity(sf::Vector2f new_velocity);
+
     private:
         sf::RectangleShape shape;
+        sf::Vector2f velocity;
 
 };
