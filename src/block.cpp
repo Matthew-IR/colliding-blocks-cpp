@@ -1,7 +1,8 @@
 #include "block.hpp"
 
-Block::Block(float w, float h, sf::Color fill_colour) {
-    shape.setSize({w,h});
+Block::Block(sf::Vector2f size, sf::Vector2f position, sf::Color fill_colour) {
+    shape.setSize(size);
+    shape.setPosition(position);
     shape.setFillColor(fill_colour);
 }
 

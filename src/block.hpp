@@ -3,7 +3,7 @@
 
 class Block {
     public:
-        Block(float w, float h, sf::Color fill_colour);
+        Block(sf::Vector2f size, sf::Vector2f position, sf::Color fill_colour);
 
         void update();
 
