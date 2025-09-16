@@ -17,7 +17,15 @@ class Block {
             return shape.getSize();
         }
 
+        sf::Vector2f const getVelocity() {
+            return velocity;
+        }
+
         void setVelocity(sf::Vector2f new_velocity);
+
+        sf::FloatRect getGlobalBounds() {
+            return shape.getGlobalBounds();
+        }
 
     private:
         sf::RectangleShape shape;

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "block.hpp"
+#include "collisions.hpp"
 
 int main() {
     const int WINDOW_WIDTH = 800;
@@ -30,6 +31,8 @@ int main() {
 
             block1.update(dt);
             block2.update(dt);
+
+            collisions(block1, block2);
 
             window.clear();
 
