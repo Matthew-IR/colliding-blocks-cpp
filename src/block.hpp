@@ -9,6 +9,14 @@ class Block {
 
         void draw(sf::RenderWindow& window);
 
+        sf::Vector2f getPosition() const {
+            return shape.getPosition();
+        }
+
+        sf::Vector2f getSize() const {
+            return shape.getSize();
+        }
+
     private:
         sf::RectangleShape shape;
 
