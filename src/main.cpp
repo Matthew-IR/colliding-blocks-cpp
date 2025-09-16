@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "block.hpp"
 #include "collisions.hpp"
+#include "wallcollisions.hpp"
 
 int main() {
     const int WINDOW_WIDTH = 800;
@@ -14,9 +15,18 @@ int main() {
         sf::Vector2f block2_size = {10.0f, 10.0f};
         sf::Vector2f block2_position = {600.0f, 0.0f};
         sf::Vector2f block2_init_velocity = {-100.0f, 0.0f};
-        
+
         Block block1(block1_size, block1_position, block1_init_velocity, sf::Color::Red);
         Block block2(block2_size, block2_position, block2_init_velocity, sf::Color::Green);
+
+        // Walls
+        sf::Vector2f wall_size = {2.0f, 1000.0f};
+        sf::Vector2f leftwall_position = {20.0f, 0.0f};
+        sf::Vector2f rightwall_position = {WINDOW_WIDTH - 20.0f, 0.0f};
+        sf::Vector2f wall_velocity = {0.0f, 0.0f};
+
+        Block leftwall(wall_size, leftwall_position, wall_velocity, sf::Color::White);
+        Block rightwall(wall_size, rightwall_position, wall_velocity, sf::Color::White);
 
         sf::Clock clock;
 
@@ -33,8 +43,13 @@ int main() {
             block2.update(dt);
 
             collisions(block1, block2);
+            wall_collisions(block1, leftwall);
+            wall_collisions(block2, rightwall);
 
             window.clear();
+
+            leftwall.draw(window);
+            rightwall.draw(window);
 
             block1.draw(window);
             block2.draw(window);
