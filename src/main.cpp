@@ -32,6 +32,9 @@ int main() {
 
         sf::Clock clock;
 
+        float accum = 0.0f;
+        const float TIMESTEP = 1.0f / 240.0f;
+
         while (window.isOpen()) {
             if (const auto event = window.pollEvent()) {
                 if (event->is<sf::Event::Closed>()) {
@@ -39,14 +42,19 @@ int main() {
                 }
             }
 
-            float dt = clock.restart().asSeconds();
+            accum += clock.restart().asSeconds();
 
-            block1.update(dt);
-            block2.update(dt);
+            while (accum >= TIMESTEP) {
+                block1.update(TIMESTEP);
+                block2.update(TIMESTEP);
 
-            collisions(block1, block2);
-            wall_collisions(block1, leftwall);
-            wall_collisions(block2, rightwall);
+                collisions(block1, block2);
+                wall_collisions(block1, leftwall);
+                wall_collisions(block2, rightwall);
+
+                accum -= TIMESTEP;
+            }
+
 
             window.clear();
 
