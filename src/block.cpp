@@ -20,3 +20,7 @@ void Block::update(float dt) {
 void Block::setVelocity(sf::Vector2f new_velocity) {
     velocity = new_velocity;
 }
+
+void Block::move(const sf::Vector2f& offset) {
+    shape.move(offset);
+}

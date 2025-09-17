@@ -9,6 +9,8 @@ class Block {
 
         void draw(sf::RenderWindow& window);
 
+        void move(const sf::Vector2f& offset);
+
         sf::Vector2f getPosition() const {
             return shape.getPosition();
         }
